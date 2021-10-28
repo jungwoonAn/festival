@@ -12,83 +12,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
-
-    <script>
-
-      //relative nav
-      $(function(){
-        $("#nav_icon").click(function(){
-          $("#hide_nav").slideToggle();
-        });
-      });
-
-      $(window).resize(function(){
-        if(window.innerWidth>=1100){
-          $('#hide_nav').hide();
-        }
-      });
-
-      var currentScrollTop=0;
-      $(document).ready(function(){
-      	scrollController();
-      	$(window).scroll(function(){
-      		scrollController();
-      	});
-      });
-
-      function scrollController(){
-      	currentScrollTop = $(window).scrollTop();
-      	if(currentScrollTop > 300){
-      		$("nav").addClass("fixed");
-      	}
-      	else {
-      		$("nav").removeClass("fixed");
-      	}
-      }
-
-
-      //testmonials slideshow
-      function slides(){
-        $('.slides').animate({left:-1000}, function(){
-          $('.slides li:first').appendTo('.slides');
-          $('.slides').css({left:0});
-        });
-      }
-
-      setInterval(slides, 3000);
-
-
-      //moments click slideshow
-      var slideIndex = 1;
-      showSlides(slideIndex);
-
-      function plusSlides(n) {
-        showSlides(slideIndex += n);
-      }
-
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
-
-      function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("photo");
-        var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-      }
-
-      
-    </script>
-
+    <script src="js/respond_nav.js"></script>
+    <script src="js/auto_slide.js"></script>
+    <script src="js/click_slide.js"></script>
 
   </head>
 
